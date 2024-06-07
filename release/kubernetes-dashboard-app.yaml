@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: kubernetes-dashboard-helm
+  name: kubernetes-dashboard
   namespace: argocd
 spec:
   destination:
