@@ -3,3 +3,11 @@ kind: Kustomization
 resources:
 - https://raw.githubusercontent.com/metallb/metallb/v0.14.5/config/manifests/metallb-native.yaml
 - metal-lb-l2Advertisement.yaml
+
+patches:
+  - path: patch-ds.yaml
+    target:
+      group: apps
+      version: v1
+      kind: DaemonSet
+      name: speaker
