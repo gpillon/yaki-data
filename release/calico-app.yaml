@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: tigera-operator
+  namespace: argocd
+spec:
+  destination:
+    namespace: tigera-operator
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: apps/calico
+    repoURL: https://github.com/gpillon/yaki-data.git
+    targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
