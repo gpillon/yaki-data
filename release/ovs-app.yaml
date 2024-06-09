@@ -1,15 +1,15 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: metallb
+  name: ovs
   namespace: argocd
 spec:
   destination:
-    namespace: metallb-system
+    namespace: kube-system
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: apps/metal-lb
+    path: apps/ovs
     repoURL: https://github.com/gpillon/yaki-data.git
     targetRevision: HEAD
   syncPolicy:
@@ -17,4 +17,4 @@ spec:
       prune: true
       selfHeal: true
     syncOptions:
-      - Replace=true
+      - ServerSideApply=true
